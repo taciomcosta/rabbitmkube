@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmkube-deployment
+  labels:
+    app: rabbitmkube
+spec:                       
+  selector:
+    matchLabels:
+      app: rabbitmkube
+  template:
+    metadata:
+      labels:
+        app: rabbitmkube
+    spec:
+      serviceAccountName: default
+      containers:
+      - name: rabbitmkube
+        image: taciomcosta/rabbitmkube:1.0.0
+        env:
+        - name: RABBITMQ_URL
+          value: https://finch.rmq.cloudamqp.com/api/queues # url must be rabbitmq /queues endpoint
+        - name: RABBITMQ_USER
+          value: <change-me>
+        - name: RABBITMQ_PASS
+          value: <change-me>
