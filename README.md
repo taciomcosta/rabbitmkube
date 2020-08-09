@@ -1,3 +1,5 @@
+![logo](logo.png)
+
 _rabbitmkube_ is an autoscaler for k8s deployments that need to base their number of replicas on
 the number of messages contained in a queue.
 
